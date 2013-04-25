@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.UUID;
 
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Region;
@@ -48,7 +47,7 @@ public class EC2Tools {
 		System.out.println("EC2 Tools");
 	    System.out.println("===========================================\n");
 	     
-		while (option != 8) {
+		while (option != 7) {
        
 	        System.out.println("What would you like to do: ");
 	        System.out.println("--------------------------");
@@ -59,8 +58,7 @@ public class EC2Tools {
 	        System.out.println("4) List Unattached Volumes");
 	        System.out.println("5) Detach A Volume");
 	        System.out.println("6) Attach A Volume");
-	        System.out.println("7) Delete Bucket");
-	        System.out.println("8) Exit");
+	        System.out.println("7) Exit");
 	        
 	        Scanner scn = new Scanner(System.in); 
 			System.out.println("Choose a number: ");
@@ -86,7 +84,7 @@ public class EC2Tools {
 				System.out.println();
 				unattachedVolumes();
 			}
-			else if(option == 8){
+			else if(option == 7){
 				System.out.println("Goodbye.");
 				System.exit(1);
 			}
@@ -97,10 +95,6 @@ public class EC2Tools {
 			else if(option == 6){
 				System.out.println();
 				attachVolume();
-			}
-			else if(option == 7){
-				System.out.println();
-				//deleteBucket();
 			}
 			else{
 				System.err.println("Please select a valid option");
@@ -388,7 +382,7 @@ public class EC2Tools {
 	        int r = generator.nextInt(99);
 	        attachVol.withDevice("/dev/sda"+r); 
 	        ec2.attachVolume(attachVol);
-	        System.out.println(currVol.getVolumeId() + " Is Now Attached To Instance: "+ currInstance);
+	        System.err.println(currVol.getVolumeId() + " Is Now Attached To Instance: "+ currInstance);
 	 		
 	 		
 	        

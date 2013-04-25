@@ -21,4 +21,4 @@ This command transfer the jar file from your local drive to the host server.
 
 6 - run: $ java -jar JarFile.jar
 
-7. Done
+7 - Done
